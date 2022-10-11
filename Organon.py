@@ -1,6 +1,8 @@
 import os
 import glob
 import shutil
+import time
+import getpass
 # mapping each extension with its corresponding folder
 # For example, 'jpg', 'png', 'ico', 'gif', 'svg' files will be moved to 'images' folder
 # feel free to change based on your needs
@@ -69,7 +71,7 @@ if __name__ == "__main__":
     for extension, folder_name in extensions.items():
         # get all the files matching the extension
         files = glob.glob(os.path.join(path, f"*.{extension}"))
-        if verbose == 1
+        if verbose == 1:
             print(f"[*] Found {len(files)} files with {extension} extension")
         if not os.path.isdir(os.path.join(path, folder_name)) and files:
             # create the folder if it does not exist before
