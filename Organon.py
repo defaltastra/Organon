@@ -41,25 +41,36 @@ extensions = {
     "apk": "apk",
     "sqlite3": "sqlite3",
 }
-print(f'''
-·▄▄▄▄•      ·▄▄▄▄  ▪   ▄▄▄· ▄ •▄ 
-▪▀·.█▌▪     ██▪ ██ ██ ▐█ ▀█ █▌▄▌▪
-▄█▀▀▀• ▄█▀▄ ▐█· ▐█▌▐█·▄█▀▀█ ▐▀▀▄·
-█▌▪▄█▀▐█▌.▐▌██. ██ ▐█▌▐█ ▪▐▌▐█.█▌
-·▀▀▀ • ▀█▄▀▪▀▀▀▀▀• ▀▀▀ ▀  ▀ ·▀  ▀
-Version | 0.1
-Made by Zodiak
-  
-    ''')
-input("Press Enter To Organized Downloads Files :")
+qst = print("Organizing Downloads Folder...")
+time.sleep(1)
+USER_NAME = getpass.getuser()
+#Add to startup function
+def add_to_startup(file_path=""):
+    if file_path == "":
+        file_path = os.path.abspath(__file__)
+        file_path2 = f"C:\\Users\\{name}\\Documents"
+        file_path3 = f"C:\\Users\\{name}\\Documents\\Organon.py"
+        try:
+            shutil.copy(file_path , file_path2)
+        except shutil.SameFileError:
+                pass
+        
+
+    bat_path = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % USER_NAME
+    with open(bat_path + '\\' + "open.bat", "w+") as bat_file:
+        bat_file.write(f'''@echo off
+python "{file_path3}"
+pause ''')
+        
 if __name__ == "__main__":
     name = os.getlogin()
     path = f"C:\\Users\\{name}\\Downloads"
-    verbose = 0
+    verbose = 1
     for extension, folder_name in extensions.items():
         # get all the files matching the extension
         files = glob.glob(os.path.join(path, f"*.{extension}"))
-        print(f"[*] Found {len(files)} files with {extension} extension")
+        if verbose == 1
+            print(f"[*] Found {len(files)} files with {extension} extension")
         if not os.path.isdir(os.path.join(path, folder_name)) and files:
             # create the folder if it does not exist before
             print(f"[+] Making {folder_name} folder")
@@ -68,7 +79,7 @@ if __name__ == "__main__":
             # for each file in that extension, move it to the correponding folder
             basename = os.path.basename(file)
             dst = os.path.join(path, folder_name, basename)
-            if verbose:
+            if verbose == 1:
                 print(f"[*] Moving {file} to {dst}")
             shutil.move(file, dst)
-input("Press Enter To Exit")           
+add_to_startup()
