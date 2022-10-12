@@ -62,7 +62,7 @@ def add_to_startup(file_path=""):
     with open(bat_path + '\\' + "open.bat", "w+") as bat_file:
         bat_file.write(f'''@echo off
 python "{file_path3}"
-pause ''')
+exit ''')
         
 if __name__ == "__main__":
     name = os.getlogin()
