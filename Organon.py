@@ -8,6 +8,8 @@ import getpass
 # feel free to change based on your needs
 extensions = {
     "jpg": "images",
+    "jpeg":"images",
+    "c":"C Files",
     "png": "images",
     "ico": "images",
     "gif": "images",
