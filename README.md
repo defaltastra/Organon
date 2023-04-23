@@ -1,7 +1,9 @@
 <div style="text-align:center">
-  <img src="img/bettyformatter.gif" alt="Alt Text" style="margin:auto;">
+  <img src="img/Organon.gif" alt="Alt Text" style="margin:auto;">
 </div>
+
 # Organon
+
 Organon is a Python script that organizes files in the Downloads folder of the current user's system according to their file extensions into separate subfolders. It also provides an option to add itself to the system startup.
 
 # Installation
